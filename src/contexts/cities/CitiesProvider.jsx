@@ -48,14 +48,23 @@ export function CitiesProvider({ children }) {
         <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
       );
     } catch (err) {
-      console.error("Invalid flag:", flag);
+      console.error("Invalid flag:", err);
       return "";
     }
   }
 
+  function Flag(countryCode) {
+    return (
+      <img
+        src={`https://flagcdn.com/24x18/${countryCode.toLocaleLowerCase()}.png`}
+        alt={countryCode}
+      />
+    );
+  }
+
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoading, currentCity, getCity, flagemojiToPNG }}
+      value={{ cities, isLoading, currentCity, getCity, flagemojiToPNG, Flag }}
     >
       {children}
     </CitiesContext.Provider>

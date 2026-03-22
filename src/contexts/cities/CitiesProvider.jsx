@@ -36,12 +36,21 @@ export function CitiesProvider({ children }) {
   }
 
   function flagemojiToPNG(flag) {
-    var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
-      .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-      .join("");
-    return (
-      <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
-    );
+    if (!flag || flag.length < 2) return "";
+
+    try {
+      const countryCode = Array.from(flag, (char) => char.codePointAt(0))
+        .map((code) => String.fromCharCode(code - 127397))
+        .join("")
+        .toLowerCase();
+
+      return (
+        <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+      );
+    } catch (err) {
+      console.error("Invalid flag:", flag);
+      return "";
+    }
   }
 
   return (

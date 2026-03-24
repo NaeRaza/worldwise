@@ -16,7 +16,8 @@
   border-radius: 5px;
   padding-right: 0.6rem;
   font-family:
-    "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+    "Manrope", "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji",
+    sans-serif;
 }
 
 :global(.leaflet-popup .leaflet-popup-content) {

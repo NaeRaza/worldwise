@@ -35,36 +35,48 @@ export function CitiesProvider({ children }) {
     }
   }
 
-  function flagemojiToPNG(flag) {
-    if (!flag || flag.length < 2) return "";
-
+  async function createCity(newCity) {
     try {
-      const countryCode = Array.from(flag, (char) => char.codePointAt(0))
-        .map((code) => String.fromCharCode(code - 127397))
-        .join("")
-        .toLowerCase();
-
-      return (
-        <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
-      );
-    } catch (err) {
-      console.error("Invalid flag:", err);
-      return "";
+      setIsLoading(true);
+      const res = await fetch(`http://localhost:8000/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      setCities((cities) => [...cities, data]);
+    } catch {
+      alert("There was an error loading data...");
+    } finally {
+      setIsLoading(false);
     }
   }
 
-  function Flag(countryCode) {
-    return (
-      <img
-        src={`https://flagcdn.com/24x18/${countryCode.toLocaleLowerCase()}.png`}
-        alt={countryCode}
-      />
-    );
+  function getFlagEmoji(input) {
+    if (!input) return "";
+
+    // 👉 Si c'est déjà un emoji → retourne tel quel
+    if (input.length > 2) return input;
+
+    // 👉 Sinon c'est un code pays
+    return input
+      .toUpperCase()
+      .split("")
+      .map((char) => 127397 + char.charCodeAt())
+      .map((code) => String.fromCodePoint(code))
+      .join("");
   }
 
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoading, currentCity, getCity, flagemojiToPNG, Flag }}
+      value={{
+        cities,
+        isLoading,
+        currentCity,
+        getCity,
+        getFlagEmoji,
+        createCity,
+      }}
     >
       {children}
     </CitiesContext.Provider>

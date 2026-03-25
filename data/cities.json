@@ -37,14 +37,36 @@
       "id": "98443197"
     },
     {
-      "id": "1604",
-      "cityName": "Tortosa",
+      "id": "fbc0",
+      "cityName": "Albacete",
       "country": "Spain",
       "countryCode": "ES",
-      "date": "2026-03-24T06:22:22.638Z",
+      "date": "2026-03-25T05:30:10.471Z",
       "position": {
-        "lat": "40.80705305827062",
-        "lng": "0.5191040039062501"
+        "lat": "38.974357249228206",
+        "lng": "-1.8154907226562502"
+      }
+    },
+    {
+      "id": "a5b8",
+      "cityName": "Velez-Malaga",
+      "country": "Spain",
+      "countryCode": "ES",
+      "date": "2026-03-25T05:38:15.051Z",
+      "position": {
+        "lat": "36.721273880045004",
+        "lng": "-4.218750000000001"
+      }
+    },
+    {
+      "id": "5240",
+      "cityName": "Toamasina",
+      "country": "Madagascar",
+      "countryCode": "MG",
+      "date": "2026-03-25T05:45:05.956Z",
+      "position": {
+        "lat": "-18.1608585453363",
+        "lng": "49.40689086914063"
       }
     }
   ],

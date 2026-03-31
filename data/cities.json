@@ -48,17 +48,6 @@
       }
     },
     {
-      "id": "a5b8",
-      "cityName": "Velez-Malaga",
-      "country": "Spain",
-      "countryCode": "ES",
-      "date": "2026-03-25T05:38:15.051Z",
-      "position": {
-        "lat": "36.721273880045004",
-        "lng": "-4.218750000000001"
-      }
-    },
-    {
       "id": "5240",
       "cityName": "Toamasina",
       "country": "Madagascar",
